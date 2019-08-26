@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" id="Theme" href="css/Empty.css">
+</head>
+
+<body>
+    <div class="LoginBody">
+        <input type="text" placeholder="username" class="txtLogin">
+        <input type="text" placeholder="password" class="txtLogin">
+        <input type="button" class="btnLogin" value="Login">
+
+        <div class="BtnColorsContainer">
+            <div class="btnColor LightBtn"></div>
+            <div class="btnColor NightBtn"></div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/cookie.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            if (cookie.get('Theme') == false) {
+
+                $('#Theme').attr('href', 'css/Empty.css');
+            } else {
+                $('#Theme').attr('href', cookie.get('Theme'));
+
+            }
+
+
+
+
+
+
+            $('.LightBtn').click(function() {
+
+                $('#Theme').attr('href', 'css/Empty.css');
+
+                cookie('Theme', 'css/Empty.css', 400);
+            });
+
+            //****************************************
+
+            $('.NightBtn').click(function() {
+
+                $('#Theme').attr('href', 'css/Night.css');
+                cookie('Theme', 'css/Night.css', 400);
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>
